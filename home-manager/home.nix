@@ -112,6 +112,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Taken from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
+  # Reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
 

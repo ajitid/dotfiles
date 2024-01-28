@@ -40,6 +40,7 @@ If you add new scripts, do `chmod u+x scripts/*.sh`
 - https://github.com/mercurytechnologies/nix-your-shell (useful for `nix-shell -p <pkgname>` and keeping fish as the shell, not bash)
 - https://github.com/zzhaolei/transient.fish (this explains better: https://github.com/romkatv/powerlevel10k#transient-prompt)
 - Removing harcoding to G14, see how https://github.com/hlissner/dotfiles does it
+- Seems like people tend to disable smooth scrolling a lot https://www.reddit.com/r/NixOS/comments/scf0ui/how_would_i_update_desktop_file/
 
 **Other stuff to automate**:
 
