@@ -12,24 +12,24 @@ cd scripts
 ./hey-update-nix.sh
 ./hey-apply-nixos.sh
 reboot
-asusctl -c 80 # limit battery
+asusctl -c 80 # limit battery to 80%, doesn't need reboot to apply itself
 ./hey-apply-home-manager.sh
 # logout and log back in
+# change ~/ghq/github.com/ajitid/dotfiles Git origin from HTTPS to SSH
 # enable gnome extensions and manually install astra-monitor
 # configure keyboard shortcuts and extensions config
 # Open chrome://flags/ → Preferred Ozone platform, choose Wayland
 ```
 
-^ Hopefully when I try next time, it'd just be condensed to cloning git repo, hey-init-nixos.sh and hey-sync-nix.sh but I'm not sure right now if in-between restarts are needed.
-
 > [!NOTE]
 >
-> Trim generations script ([wiki](https://nixos.wiki/wiki/NixOS_Generations_Trimmer), [gist](https://gist.github.com/MaxwellDupre/3077cd229490cf93ecab08ef2a79c852)) is not supposed to be run directly, rather use hey-save-space.sh
+> Trim generations script ([wiki](https://nixos.wiki/wiki/NixOS_Generations_Trimmer), [gist](https://gist.github.com/MaxwellDupre/3077cd229490cf93ecab08ef2a79c852)) is not supposed to be run directly, rather use hey-trim-gens.sh
 
 High level commands:
 
 - hey-init-nixos.sh
 - hey-sync-nix.sh
+- hey-save-space.sh
 
 ---
 

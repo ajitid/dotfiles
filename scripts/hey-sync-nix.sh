@@ -10,6 +10,6 @@ echo "Applying updates to NixOS..."
 ./scripts/hey-apply-nixos.sh
 echo "Applying updates to Home Manager..."
 ./scripts/hey-apply-home-manager.sh
-echo "Saving space by trimming generations..."
-./scripts/hey-save-space.sh
+echo "Trimming generations..."
+./scripts/hey-trim-gens.sh
 popd
