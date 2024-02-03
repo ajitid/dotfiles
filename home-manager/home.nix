@@ -83,6 +83,7 @@
     ".golangci.yml".source = src/.golangci.yml;
     ".ssh/allowed_signers".source = src/ssh/allowed_signers;
     ".ssh/config".source = src/ssh/config;
+    ".npmrc".text = "prefix=~/.local"; # adds binaries to ~/.local/bin and node modules to ~/.local/lib/node_modules
 
     # For copying/symlinking whole dir instead (I don't know if it symlinks the dir, by seeing recursive flag it probabaly doesn't):
     # ".local/bin" = {
