@@ -177,22 +177,6 @@
   # not needed by me yet
   # services.flatpak.enable = true;
 
-  # G14
-  # from https://www.reddit.com/r/NixOS/comments/16if1th/fyi_nvidia_dynamic_boost_is_in_unstable/
-  #   https://www.reddit.com/r/NixOS/comments/150aofr/is_it_possible_to_enable_nvidia_dynamic_boost/js8nli7/
-  #   https://github.com/NixOS/nixpkgs/pull/211300
-  # If `sudo journalctl -b --unit=supergfxd` logs say nvidia-powerd.service is failing, then dynamicBoost being disabled is probably the reason
-  # code starts here →
-  hardware.nvidia.dynamicBoost.enable = true;
-
-  # G14
-  # https://mtoohey.com/articles/nixos-on-g14/ mentioned at the bottom:
-  # code starts here →
-  hardware.nvidia.powerManagement = {
-    enable = true;
-    finegrained = true;
-  };
-
   # ROG Control Centre app doesn' open, but you can still use the command `asusctl -c 80` to limit battery.
 
   # If the key import fails and you don't see a UI to enter password, run `gpgconf --reload gpg-agent` and retry.
