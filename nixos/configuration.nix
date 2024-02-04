@@ -188,7 +188,10 @@
   # G14
   # https://mtoohey.com/articles/nixos-on-g14/ mentioned at the bottom:
   # code starts here →
-  hardware.nvidia.powerManagement.finegrained = true;
+  hardware.nvidia.powerManagement = {
+    enable = true;
+    finegrained = true;
+  };
 
   # ROG Control Centre app doesn' open, but you can still use the command `asusctl -c 80` to limit battery.
 
