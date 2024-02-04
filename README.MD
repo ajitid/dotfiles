@@ -1,4 +1,14 @@
+# Dotfiles
+
 Harcoded to Zephyrus G14 hardware. `configuration.nix` mentions `# G14` wherever that hardcoding has been made.
+
+## High Level Commands
+
+- hey-init-nixos.sh
+- hey-sync-nix.sh
+- hey-save-space.sh
+
+## Setup Your Computer
 
 Install NixOS, and run these:
 
@@ -9,11 +19,11 @@ git clone https://github.com/ajitid/dotfiles.git
 exit
 cd scripts
 ./hey-init-nixos.sh
-./hey-update-nix.sh
-./hey-apply-nixos.sh
+./pvt/hey-update-nix.sh
+./pvt/hey-apply-nixos.sh
 reboot
 asusctl -c 80 # limit battery to 80%, doesn't need reboot to apply itself
-./hey-apply-home-manager.sh
+./pvt/hey-apply-home-manager.sh
 # logout and log back in
 # change ~/ghq/github.com/ajitid/dotfiles Git origin from HTTPS to SSH
 # enable gnome extensions and manually install astra-monitor
@@ -21,19 +31,17 @@ asusctl -c 80 # limit battery to 80%, doesn't need reboot to apply itself
 # Open chrome://flags/ → Preferred Ozone platform, choose Wayland
 ```
 
+## Additional Notes
+
+Rest of the low-level commands can be executed by cd-ing into `<dotfiles-path>/scripts/pvt` and then running `./<script-name>.sh`.
+
 > [!NOTE]
 >
 > Trim generations script ([wiki](https://nixos.wiki/wiki/NixOS_Generations_Trimmer), [gist](https://gist.github.com/MaxwellDupre/3077cd229490cf93ecab08ef2a79c852)) is not supposed to be run directly, rather use hey-trim-gens.sh
 
-High level commands:
+If you add new scripts, do `chmod u+x scripts/*.sh`.
 
-- hey-init-nixos.sh
-- hey-sync-nix.sh
-- hey-save-space.sh
-
----
-
-If you add new scripts, do `chmod u+x scripts/*.sh`
+## To Do
 
 **Look into**:
 

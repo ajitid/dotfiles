@@ -5,11 +5,11 @@ set -euo pipefail
 
 pushd ~/ghq/github.com/ajitid/dotfiles
 echo "Updating nixpkgs records..."
-./scripts/hey-update-nix.sh
+./scripts/pvt/hey-update-nix.sh
 echo "Applying updates to NixOS..."
-./scripts/hey-apply-nixos.sh
+./scripts/pvt/hey-apply-nixos.sh
 echo "Applying updates to Home Manager..."
-./scripts/hey-apply-home-manager.sh
+./scripts/pvt/hey-apply-home-manager.sh
 echo "Trimming generations..."
-./scripts/hey-trim-gens.sh
+./scripts/pvt/hey-trim-gens.sh
 popd
