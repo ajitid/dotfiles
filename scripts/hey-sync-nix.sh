@@ -10,6 +10,4 @@ echo "Applying updates to NixOS..."
 ./scripts/pvt/hey-apply-nixos.sh
 echo "Applying updates to Home Manager..."
 ./scripts/pvt/hey-apply-home-manager.sh
-echo "Trimming generations..."
-./scripts/pvt/hey-trim-gens.sh
 popd
