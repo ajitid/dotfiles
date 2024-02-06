@@ -63,6 +63,7 @@
     sublime-merge
     stremio
     google-chrome
+    vlc
   ];
 
   # using parallel as Go may acquire a lock when installing packages, but I want the successive runs which only verify
