@@ -159,11 +159,13 @@
 
   programs.fish.enable = true;
 
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ajit = {
     isNormalUser = true;
     description = "Ajit";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; []; # I should rather opt for home-manager. More below:
     # Anything that's distro dependent (eg. Gnome extensions) and 
@@ -201,6 +203,11 @@
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = ["ajit"];
+  };
+
+  services.plex = {
+    enable = true;
+    openFirewall = true;
   };
 }
 

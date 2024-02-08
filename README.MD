@@ -29,6 +29,12 @@ asusctl -c 80 # limit battery to 80%, doesn't need reboot to apply itself
 # enable gnome extensions and manually install astra-monitor
 # configure keyboard shortcuts and extensions config
 # Open chrome://flags/ → Preferred Ozone platform, choose Wayland
+#
+# You may need to increase watchers: https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc
+# ^ modify this https://github.com/euank/nixpkgs/commit/835749939f86f623bbc7d16b27c144e4b42789b8
+    to use 'max_user_watches' instead of 'max_user_instances' or just follow VS Code instructions direclty
+#   Again, you may actually not need to do this because of https://github.com/NixOS/nixpkgs/issues/36214#issuecomment-860249879
+#   ^ If this is actually the case then remove the comment
 ```
 
 ## Additional Notes
