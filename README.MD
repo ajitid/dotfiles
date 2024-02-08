@@ -43,7 +43,7 @@ Rest of the low-level commands can be executed by cd-ing into `<dotfiles-path>/s
 
 > [!NOTE]
 >
-> Trim generations script ([wiki](https://nixos.wiki/wiki/NixOS_Generations_Trimmer), [gist](https://gist.github.com/MaxwellDupre/3077cd229490cf93ecab08ef2a79c852)) is not supposed to be run directly, rather use hey-trim-gens.sh
+> Trim generations script ([wiki](https://nixos.wiki/wiki/NixOS_Generations_Trimmer), [gist](https://gist.github.com/MaxwellDupre/3077cd229490cf93ecab08ef2a79c852)) is not supposed to be run directly, rather use hey-save-space.sh
 
 If you add new scripts, do `chmod u+x scripts/*.sh`.
 
