@@ -204,10 +204,5 @@
     enable = true;
     polkitPolicyOwners = ["ajit"];
   };
-
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-  };
 }
 
