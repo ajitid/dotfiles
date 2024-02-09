@@ -170,15 +170,15 @@
 fish_add_path -Pa $HOME/.local/bin $HOME/go/bin $HOME/Documents/the-zig $HOME/ghq/github.com/ajitid/dotfiles/scripts
 
 abbr -a -- - 'cd -'
-abbr gi "cd ~/ghq/(ghq list | fzf)"
+alias gi "cd ~/ghq/(ghq list | fzf)"
 
 # https://askubuntu.com/questions/499807/how-to-unzip-tgz-file-using-the-terminal
 abbr tarunzip 'tar --extract --one-top-level --file'
 
-alias l='ls -aAlhp --group-directories-first'
+alias l 'ls -aAlhp --group-directories-first'
 
 # folder/file size
-abbr huge "du -h --max-depth=1 | sort -hr"
+abbr huge 'du -h --max-depth=1 | sort -hr'
 # alternative https://github.com/bootandy/dust
 
 function mkcd --description 'Create and enter directory'
