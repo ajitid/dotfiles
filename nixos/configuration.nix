@@ -116,6 +116,20 @@
   # Use compressed RAM for swap
   zramSwap.enable = true;
 
+  # setup NextDNS
+  # from https://github.com/NixOS/nixpkgs/issues/225634#issuecomment-1880353935
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      [Resolve]
+      DNS=45.90.28.0#8f2a6d.dns.nextdns.io
+      DNS=2a07:a8c0::#8f2a6d.dns.nextdns.io
+      DNS=45.90.30.0#8f2a6d.dns.nextdns.io
+      DNS=2a07:a8c1::#8f2a6d.dns.nextdns.io
+      DNSOverTLS=yes
+    '';
+  };
+
   nix.settings.trusted-users = [ "root" "ajit" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.optimise.automatic = true;
@@ -195,7 +209,5 @@
     enable = true;
     openFirewall = true;
   };
-
-  services.tailscale.enable = true;
 }
 
