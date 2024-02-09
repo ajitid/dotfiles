@@ -3,11 +3,11 @@ set -euo pipefail
 
 pushd ~/ghq/github.com/ajitid/dotfiles
 echo "Trimming home-manager gens..."
-./scripts/pvt/hey-trim-generations.sh 2 0 home-manager
+./scripts/pvt/hey-trim-generations.sh 2 -1 home-manager
 echo "Trimming user gens..."
-./scripts/pvt/hey-trim-generations.sh 2 0 user
+./scripts/pvt/hey-trim-generations.sh 2 -1 user
 echo "Trimming system gens..."
-sudo ./scripts/pvt/hey-trim-generations.sh 2 0 system
+sudo ./scripts/pvt/hey-trim-generations.sh 2 -1 system
 popd
 
 echo "Optimising store and GC-ing. This may take few mins..."

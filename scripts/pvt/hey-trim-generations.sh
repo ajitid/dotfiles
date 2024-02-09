@@ -72,7 +72,7 @@ elif (( $# > 4)); then
     exit 2
 else
     if [ $1 -lt 1 ]; then
-        printf "using Gen numbers less than 1 not recommended. Setting to min=1\n"
+        printf "using Gen numbers less than 1 is not allowed. Setting to min=1\n"
         read -p "is that ok? (y/n): " asnwer
         #printf "$asnwer"
         case "$asnwer" in
@@ -90,26 +90,11 @@ else
         esac
     fi
     if [ $2 -lt 0 ]; then
-        printf "using negative days number not recommended. Setting to min=0\n"
-        read -p "is that ok? (y/n): " asnwer
-
-        case "$asnwer" in
-        [yY1] )
-            printf "ok, continuing..\n"
-            ;;
-        [nN0] )
-            printf "ok, doing nothing, exiting..\n"
-            exit 6;
-            ;;
-        *     )
-            printf "%b" "Doing nothing, exiting.."
-            exit 7;
-            ;;
-        esac
+        printf "using negative days would be interpreted as to not consider days\n"
     fi
     keepGens=$1; keepDays=$2;
     (( keepGens < 1 )) && keepGens=1
-    (( keepDays < 0 )) && keepDays=0
+    (( keepDays < 0 )) && keepDays=-1
     if [[ $EUID -ne 0 ]]; then
         if [[ $3 == "user" ]] || [[ $3 == "default" ]]; then
             profile=$(readlink /home/$USER/.nix-profile)
@@ -213,7 +198,7 @@ elapsedDays=$((timeBetweenOldestAndCurrent/60/60/24))
 generationsDiff=$((currentGen-oldestGen))
 
 ## Figure out what we should do, based on generations and options
-if [[ elapsedDays -le keepDays ]]; then
+if [[ keepDays -ge 0 ]] && [[ elapsedDays -le keepDays ]]; then
     printf "All generations are no more than $keepDays days older than current generation. \nOldest gen days difference from current gen: $elapsedDays \n\n\tNothing to do!\n"
 elif [[ generationsDiff -lt keepGens ]]; then
     printf "Oldest generation ($oldestGen) is only $generationsDiff generations behind current ($currentGen). \n\n\t Nothing to do!\n"
