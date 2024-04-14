@@ -52,6 +52,7 @@
     ghq
     ripgrep
     moreutils
+    watchexec
 
     # LANGS & TOOLCHAIN
     go
