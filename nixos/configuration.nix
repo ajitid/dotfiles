@@ -141,6 +141,8 @@
   environment.systemPackages = with pkgs; [
     #  wget
 
+    cachix
+
     gnome.gnome-tweaks
     gnome.dconf-editor
 
