@@ -10,7 +10,7 @@ Harcoded to Zephyrus G14 hardware. `configuration.nix` mentions `# G14` wherever
 
 ## Setup Your Computer
 
-Install NixOS (only [this old version](https://releases.nixos.org/?prefix=nixos/23.05/nixos-23.05.997.ddf4688dc7a/) could install properly on my machine) with username ajit, and run these:
+Install NixOS (only [this old version](https://releases.nixos.org/?prefix=nixos/23.05/nixos-23.05.997.ddf4688dc7a/) could install properly on my G14) with username ajit, and run these:
 
 ```
 mkdir -p ~/ghq/github.com/ajitid && cd $_
