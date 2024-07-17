@@ -10,14 +10,21 @@ Harcoded to Zephyrus G14 hardware. `configuration.nix` mentions `# G14` wherever
 
 ## Setup Your Computer
 
-Install NixOS, and run these:
+Install NixOS (only [this old version](https://releases.nixos.org/?prefix=nixos/23.05/nixos-23.05.997.ddf4688dc7a/) could install properly on my machine) with username ajit, and run these:
 
 ```
 mkdir -p ~/ghq/github.com/ajitid && cd $_
 nix-shell -p git
 git clone https://github.com/ajitid/dotfiles.git
 exit
-cd scripts
+sudoedit /etc/nixos/configuration.nix
+# Add the following line and save:
+# nix.settings.trusted-users = [ "root" "ajit" ];
+#
+# Then run the command below. `--option substitute false` should hint Nix not to check with internet to get new deps. If we don't do this the build will take too long. 
+# If the build fails for some reason then remove this option and retry the command.
+sudo nixos-rebuild switch --option substitute false
+cd dotfiles/scripts
 ./hey-init-nixos.sh
 ./pvt/hey-update-nix.sh
 ./pvt/hey-apply-nixos.sh
