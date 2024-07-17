@@ -10,20 +10,35 @@ Harcoded to Zephyrus G14 hardware. `configuration.nix` mentions `# G14` wherever
 
 ## Setup Your Computer
 
-Install NixOS (only [this old version](https://releases.nixos.org/?prefix=nixos/23.05/nixos-23.05.997.ddf4688dc7a/) could install properly on my G14) with username ajit, and run these:
+Install NixOS. I used:
+- 23.05 version as I couldn't make 23.11 and 24.04 to install on my G14
+- ajit as the username
+
+Then run these:
 
 ```
 mkdir -p ~/ghq/github.com/ajitid && cd $_
 nix-shell -p git
 git clone https://github.com/ajitid/dotfiles.git
 exit
+
 sudoedit /etc/nixos/configuration.nix
-# Add the following line and save:
-# nix.settings.trusted-users = [ "root" "ajit" ];
-#
-# Then run the command below. `--option substitute false` should hint Nix not to check with internet to get new deps. If we don't do this the build will take too long. 
-# If the build fails for some reason then remove this option and retry the command.
-sudo nixos-rebuild switch --option substitute false
+# Add `cachix` into `environment.systemPackages` then save
+sudo nixos-rebuild switch
+
+# Upgrade nixos to latest. See https://nixos.org/manual/nixos/stable/#sec-upgrading
+# use latest stable channel rather than the mentioned 24.05 here:
+sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
+sudo nixos-rebuild switch --upgrade
+reboot
+
+### nixos stops wokring upon reboot (stucks at reboot) so the steps below are not what i'd run
+
+sudoedit /etc/nixos/configuration.nix
+# Change `system.stateVersion` to the the lastest version then save
+sudo nixos-rebuild switch
+reboot
+
 cd dotfiles/scripts
 ./hey-init-nixos.sh
 ./pvt/hey-update-nix.sh
