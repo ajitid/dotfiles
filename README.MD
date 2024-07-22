@@ -32,7 +32,7 @@ sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
 sudo nixos-rebuild switch --upgrade
 reboot
 
-### nixos stops wokring upon reboot (stucks at reboot) so the steps below are not what i'd run
+### nixos stops working upon reboot (stucks at reboot) so the steps below are not what I'd run. nixos-hardware needs latest nixos that's why I had to update it above.
 
 sudoedit /etc/nixos/configuration.nix
 # Change `system.stateVersion` to the the lastest version then save
