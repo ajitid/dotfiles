@@ -164,6 +164,7 @@
     };
   };
 
+  # TODO add this https://github.com/ajitid/dotfiles-2023/blob/main/fish/.config/fish/functions/fish_prompt.fish
   # in the absence of home-manager, you may need danhper/fish-ssh-agent
   programs.fish = {
     enable = true;
