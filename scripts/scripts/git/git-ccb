@@ -1,0 +1,4 @@
+#!/usr/bin/fish
+
+# ccb -> copy current branch (name)
+git branch --show-current | tr -d '\n' | xsel -ib

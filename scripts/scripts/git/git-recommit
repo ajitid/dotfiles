@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# taken from https://stackoverflow.com/a/52324605/7683365
+# and modified
+
+if [[ $1 == "" ]]; then
+  echo "No hash (or HEAD) given"
+  exit 1
+fi
+
+set -euo pipefail
+
+script_name=${0##*/}
+
+warn () { printf '%s: %s\n' "$script_name" "$*" >&2; }
+die () { warn "$@"; exit 1; }
+
+[[ $# -ge 2 ]] && die "Expected single commit to edit. Defaults to HEAD~"
+
+# Default to editing the parent of the most recent commit
+# The most recent commit can be edited with `git commit --amend`
+commit=$(git rev-parse --short "${1:-HEAD~}")
+message=$(git log -1 --format='%h %s' "$commit")
+
+if [[ $OSTYPE =~ ^darwin ]]; then
+  sed_inplace=(sed -Ei "")
+else
+  sed_inplace=(sed -Ei)
+fi
+
+# echo "Editing commit: $message" >&2
+echo "Editing commit..."
+
+export GIT_SEQUENCE_EDITOR="${sed_inplace[*]} "' "s/^pick ('"$commit"' .*)/edit \\1/"'
+git rebase --quiet --interactive --autostash --autosquash "$commit"~
+git reset --quiet @~ "$(git rev-parse --show-toplevel)"  # Reset the cache of the toplevel directory to the previous commit
+git commit --no-verify --quiet --amend --no-edit --allow-empty  #  Commit an empty commit so that that cache diffs are un-reversed
+git add -A
+git commit --amend --no-edit
+git rebase --continue
+
+echo Edited successfully
+echo
+

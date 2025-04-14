@@ -1,0 +1,9 @@
+#!/usr/bin/fish
+
+# there are better ways to notify (setting title, description, etc.), see https://github.com/ghostty-org/ghostty/discussions/3555#discussioncomment-11687079
+
+if git push --force-with-lease origin $argv
+  notify-send.exe "Push Success" "Keep pushin'! ✔" &
+else
+  notify-send.exe -i error "Push failure" "Is it lint or test?" &
+end

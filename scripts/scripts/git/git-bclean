@@ -1,0 +1,13 @@
+#!/usr/bin/fish
+
+# clean merged branches
+# https://stevenharman.net/git-clean-delete-already-merged-branches
+
+# src: https://stackoverflow.com/a/62397081, doesn't necessarily gives default branch in all cases
+set -l remote_default (git rev-parse --abbrev-ref origin/HEAD)
+git branch --merged $remote_default | grep -v "\*" | xargs -n 1 git branch -d
+
+# - rather than `grep -v "\*"`, current branch can also be found using
+#   set -l current_branch (git branch --show-current)
+# - we could do `basename $remote_default` to obtain name of default branch
+#   in local if we want to exclude it too
