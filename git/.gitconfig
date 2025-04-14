@@ -1,0 +1,24 @@
+[user]
+	name = Ajit
+	email = zlksnkwork@gmail.com
+	signingkey = 2F48AC189D93FC22
+[core]
+	autocrlf = false
+	excludesFile = "~/.gitignore_include"
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[gc]
+	reflogexpireunreachable = 90
+	reflogexpire = 90
+[push]
+	default = current
+[diff]
+	algorithm = histogram
+[credential]
+	helper = manager-core
+[credential "helperselector"]
+	selected = manager-core
+[include]
+	path = "~/.gitconfig_override"

@@ -1,0 +1,2 @@
+[includeIf "gitdir:~/ghq/samatsomewhere/"]
+    path = "~/ghq/samatsomewhere/.gitconfig_include"
