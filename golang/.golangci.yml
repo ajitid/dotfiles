@@ -1,0 +1,36 @@
+# exclude-use-default option is enabled by default https://golangci-lint.run/usage/configuration/ which means
+# some rules won't be reported by golangci-lint but will be reported by individual binaries
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - errcheck
+    - exhaustive
+    # binary https://staticcheck.io/ != staticcheck here
+    # staticcheck here refers to a set of rules that golangci-lint executes
+    # while in staticcheck.io, staticcheck is binary that executes a set of rules
+    # This explains it better: https://github.com/golangci/golangci-lint/issues/3495
+    - staticcheck
+    - stylecheck
+    - gosimple
+    - unused
+linters-settings:
+  errcheck:
+    check-blank: true
+  exhaustive:
+    check:
+      - switch
+      - map
+    default-signifies-exhaustive: true
+  stylecheck:
+    # default taken from https://staticcheck.io/docs/configuration/options/#checks
+    checks:
+      ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022"]
+
+# # install linter rules' deps:
+# go install github.com/kisielk/errcheck@latest
+# go install github.com/nishanths/exhaustive/cmd/exhaustive@latest
+# go install honnef.co/go/tools/cmd/staticcheck@latest
+#
+# # You need to also install golangci-lint, though in Windows VS Code seems to `go install` it, so just verify if it is installed.
+# # In NixOS I'm installing it as a sytem package (and not in `.../go/bin`). So in Windows use `scoop`.
