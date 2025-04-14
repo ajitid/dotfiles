@@ -1,0 +1,36 @@
+[
+  {
+    "caption": "Create an Empty Commit...",
+    "command": "git",
+    "args": { "argv": ["commit", "--allow-empty", "-m", "$text"] }
+  },
+  {
+    // https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag
+    "caption": "Create an Annotated Tag w/o Msg...",
+    "command": "git",
+    "args": { "argv": ["tag", "-a", "$text", "-m", ""] }
+  },
+  {
+    "caption": "Force Push with Lease + No Verify (origin)",
+    "command": "git",
+    "args": {
+      "argv": ["push", "origin", "HEAD", "--no-verify", "--force-with-lease"]
+    }
+  },
+  {
+    "caption": "Push + Notify (origin)",
+    "command": "git",
+    "args": { "argv": ["gpn", "$select_local_branch"] }
+  },
+  // already inbuilt, still adding here becaue I haven't found/customized a keybd shortcut to do this
+  {
+    "caption": "Commit w/o Hooks...",
+    "command": "git",
+    "args": { "argv": ["commit", "--no-verify", "-m", "$text"] }
+  },
+  {
+    "caption": "Copy Current Branch Name",
+    "command": "git",
+    "args": { "argv": ["ccb"] }
+  }
+]
