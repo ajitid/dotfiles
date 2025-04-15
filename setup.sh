@@ -1,19 +1,17 @@
 #!/usr/bin/fish
 
+# paru flags:
+# -S install something
+# -y udpate package cache list
+# -u upgrade system
+
 paru -Syu
-paru -Sy firefox-developer-edition
-paru -Sy ghostty
-paru -Sy visual-studio-code-bin
-paru -Sy quickemu
-paru -Sy upnote-appimage
-paru -Sy go
-paru -Sy partitionmanager
-paru -Sy ntfs-3g
-paru -Sy ghq
-paru -Sy moreutils
-paru -Sy zoxide
-paru -Sy sublime-merge
-paru -Sy stow
+# omitting -y flag here as we ran with -y just above
+paru -S firefox-developer-edition ghostty visual-studio-code-bin
+paru -S quickemu
+paru -S upnote-appimage go partitionmanager ntfs-3g ghq moreutils zoxide
+paru -S sublime-merge
+paru -S stow
 
 # cachyos replaces ls with exa so I need to specify full path for ls here
 /usr/bin/ls -d */ | xargs -I {} stow {} -t ~
