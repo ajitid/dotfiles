@@ -2,12 +2,9 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 fish_add_path -Pa $HOME/.local/bin $HOME/go/bin $HOME/scripts/git
 
-# from nix home manager config:
-# VISUAL = "code --wait";
-# SUDO_EDITOR = "code --wait";
-# I suppose I don't need to specify full path if 
-# I'm appending ~/.local/bin to the path already (in my case cachyos is doing it)
-# set -x SUDO_EDITOR "$HOME/.local/bin/nvim.appimage"
+# if this doesn't work, provide the fuill path of vscode here
+set -x VISUAL 'code --wait'
+set -x SUDO_EDITOR 'code --wait'
 
 # overwrite greeting
 # potentially disabling fastfetch
@@ -22,6 +19,17 @@ zoxide init --cmd j fish | source
 
 abbr -a -- - 'cd -'
 alias gi "cd ~/ghq/(ghq list | fzf)"
+abbr gg 'ghq get -p'
+alias g. 'smerge .'
+
+# folder/file size
+# du -h --max-depth=1 | sort -hr
+# in above, `r` in `sort -hr` stands to show high to low in folder size
+abbr huge 'du -h --max-depth=1 | sort -h'
+# alternative https://github.com/bootandy/dust
+
+# remove duplicate lines (except the blank ones) from welp and put the result into file welp2
+# awk 'length == 0 ? 1 : !a[$0]++' welp > welp2
 
 function mkcd --description 'Create and enter directory'
   if mkdir $argv
