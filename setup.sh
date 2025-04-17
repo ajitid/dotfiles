@@ -30,8 +30,8 @@ fisher install danhper/fish-ssh-agent
 
 ## Additional apps:
 
-## Collector (I didn't install it because it pulls Gnome):
+## To install flatpak:
 # paru -S flatpak flatpak-kcm
 # reboot
-# flatpak install flathub it.mijorus.collector
-## Put Collector's window on top: https://mijorus.it/posts/collector/configure-kde/
+# flatpak install flathub whatever.package.youwant
+## I didn't install anything from flatpak yet because it can pull Gnome as a dependency
