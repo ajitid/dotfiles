@@ -27,3 +27,11 @@ honnef.co/go/tools/cmd/staticcheck
 # keeping fisher completely local, even though it is available through paru
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 fisher install danhper/fish-ssh-agent
+
+## Additional apps:
+
+## Collector (I didn't install it because it pulls Gnome):
+# paru -S flatpak flatpak-kcm
+# reboot
+# flatpak install flathub it.mijorus.collector
+## Put Collector's window on top: https://mijorus.it/posts/collector/configure-kde/
