@@ -9,7 +9,7 @@ paru -Syu
 # omitting -y flag here as we ran with -y just above
 paru -S firefox-developer-edition ghostty visual-studio-code-bin
 paru -S quickemu
-paru -S upnote-appimage go partitionmanager ntfs-3g ghq moreutils zoxide caffeine-ng
+paru -S upnote-appimage go partitionmanager ntfs-3g ghq moreutils zoxide caffeine-ng watchexec
 paru -S sublime-merge
 paru -S stow
 
