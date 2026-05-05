@@ -1,0 +1,5 @@
+/agent/sessions
+/agent/auth.json
+/agent/cache
+/agent/pi-sessions-extracted
+.DS_Store

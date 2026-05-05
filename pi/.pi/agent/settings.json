@@ -1,0 +1,31 @@
+{
+  "compaction": {
+    "enabled": false
+  },
+  "defaultModel": "glm-5v-turbo",
+  "defaultProvider": "zai",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": true,
+  "lastChangelogVersion": "0.73.0",
+  "packages": [
+    "npm:pi-ask-tool-extension",
+    "npm:pi-md-export",
+    {
+      "extensions": [
+        "-src/extensions/web-answer/index.ts"
+      ],
+      "source": "npm:@aliou/pi-linkup"
+    },
+    "npm:pi-scurl"
+  ],
+  "skills": [
+    "-skills/hackernews-hackerweb/SKILL.md",
+    "-skills/twitter-fetch/SKILL.md",
+    "-skills/youtube-transcript/SKILL.md",
+    "-skills/browser-tools/SKILL.md",
+    "-skills/surf/SKILL.md"
+  ],
+  "steeringMode": "all",
+  "transport": "auto",
+  "treeFilterMode": "no-tools"
+}

@@ -1,0 +1,86 @@
+{
+  "providers": {
+    "ollama": {
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "models": [
+        {
+          "_launch": true,
+          "contextWindow": 262144,
+          "id": "kimi-k2.6:cloud",
+          "input": [
+            "text",
+            "image"
+          ],
+          "reasoning": true
+        },
+        {
+          "_launch": true,
+          "contextWindow": 202752,
+          "id": "glm-5.1:cloud",
+          "input": [
+            "text"
+          ],
+          "reasoning": true
+        },
+        {
+          "_launch": true,
+          "contextWindow": 1048576,
+          "id": "deepseek-v4-flash:cloud",
+          "input": [
+            "text"
+          ],
+          "reasoning": true
+        },
+        {
+          "_launch": true,
+          "contextWindow": 262144,
+          "id": "gemma4:31b-cloud",
+          "input": [
+            "text",
+            "image"
+          ],
+          "reasoning": true
+        },
+        {
+          "_launch": true,
+          "contextWindow": 1048576,
+          "id": "deepseek-v4-pro:cloud",
+          "input": [
+            "text"
+          ],
+          "reasoning": true
+        }
+      ]
+    },
+    "zai": {
+      "models": [
+        {
+          "api": "openai-completions",
+          "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+          "compat": {
+            "supportsDeveloperRole": false,
+            "thinkingFormat": "zai",
+            "zaiToolStream": true
+          },
+          "contextWindow": 202752,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          },
+          "id": "glm-5v-turbo",
+          "input": [
+            "text",
+            "image"
+          ],
+          "maxTokens": 131072,
+          "name": "GLM-5V-Turbo",
+          "reasoning": true
+        }
+      ]
+    }
+  }
+}
