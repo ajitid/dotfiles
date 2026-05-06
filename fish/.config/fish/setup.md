@@ -2,7 +2,7 @@
 
 ## Install packages
 
-- Install zed, ghostty, mise, extension-manager, stow and foliate from CachyOS package installer
+- Install zed, ghostty, mise, extension-manager, stow, watchexec and foliate from CachyOS package installer
 - Paru
   - Install Chrome using `paru -S google-chrome`
   - Install [Vicinae](https://github.com/vicinaehq/vicinae) using `paru -S vicinae-bin` and then use Extension Manager to install [Vicinae](https://github.com/dagimg-dot/vicinae-gnome-extension) the extension to get Gnome support
