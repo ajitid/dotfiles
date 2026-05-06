@@ -2,8 +2,8 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "glm-5v-turbo",
-  "defaultProvider": "zai",
+  "defaultModel": "gpt-5.3-codex",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
   "lastChangelogVersion": "0.73.0",
