@@ -16,6 +16,8 @@ User doesn't necessarily want backwards compatibility and might be okay with bre
 
 User may prefer if the program immediately breaks and signals rather than relying on fallbacks or defaults. So don't assume and ask the user about it.
 
+In a similar vein, adding or retaining a defensive extra is also not needed. If you see a defensive extra, mention it to the user.
+
 ## On when you're not being sure
 
 When you're not sure if the fix/feature can be implemented, you can still attempt the fix. Just make sure the files you're going to change are already backed up in git if git repo is there, and if it isn't there then create a backup copy of them before you go start changing.
