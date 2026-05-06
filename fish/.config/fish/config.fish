@@ -1,10 +1,12 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
+function fish_greeting
+end
+
+if status is-interactive
+    set -U fish_greeting
+    set -g exit_status 0
+end
 
 mise activate fish | source
 
