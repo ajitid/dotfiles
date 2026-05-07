@@ -16,6 +16,7 @@
 
 ## Set up Pi 
 
-- Install Pi using `bun add -g @mariozechner/pi-coding-agent`
+- Install Pi using `bun add -g @earendil-works/pi-coding-agent`
+- Check if any post install is blocked using `bun pm -g untrusted`. Review and if all ok, then install them all using `bun pm trust -g --all`.
 - `cd ~ && git clone git@github.com:ajitid/pi-config.git .pi`
 - Follow setup instructions in `~/.pi/setup.md`
