@@ -20,6 +20,7 @@ export ZAI_API_KEY=(passage show zai/api-key)
 abbr -a -- - 'cd -'
 abbr gg 'ghq get -p'
 alias g. 'smerge .'
+alias zed 'zeditor'
 function gcd
   set -l repo (ghq list | fzf)
   or return
