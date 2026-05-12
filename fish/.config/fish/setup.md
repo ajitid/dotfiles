@@ -2,7 +2,7 @@
 
 ## Install packages
 
-- Install zed, ghostty, mise, extension-manager, stow, watchexec, zoxide and foliate from CachyOS package installer
+- Install zed, ghostty, mise, extension-manager, stow, watchexec and foliate from CachyOS package installer
 - Paru
   - Install Chrome using `paru -S google-chrome`
   - Install [Vicinae](https://github.com/vicinaehq/vicinae) using `paru -S vicinae-bin`

@@ -9,7 +9,6 @@ if status is-interactive
 end
 
 mise activate fish | source
-zoxide init fish | source
 
 fish_add_path -g "$HOME/.bun/bin"
 
