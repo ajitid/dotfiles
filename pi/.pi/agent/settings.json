@@ -6,7 +6,7 @@
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.74.0",
+  "lastChangelogVersion": "0.75.4",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
@@ -16,7 +16,8 @@
       ],
       "source": "npm:@aliou/pi-linkup"
     },
-    "npm:pi-scurl"
+    "npm:pi-scurl",
+    "npm:@aliou/pi-neuralwatt"
   ],
   "skills": [
     "-skills/hackernews-hackerweb/SKILL.md",

@@ -14,7 +14,7 @@ fish_add_path -g "$HOME/.bun/bin"
 
 export EDITOR="zeditor --wait"
 export LINKUP_API_KEY=(passage show linkup/api-key)
-export ZAI_API_KEY=(passage show zai/api-key)
+export NEURALWATT_API_KEY=(passage show neuralwatt/api-key)
 
 abbr -a -- - 'cd -'
 abbr gg 'ghq get -p'
