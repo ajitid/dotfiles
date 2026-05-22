@@ -3,8 +3,8 @@
   "currentMode": "default",
   "modes": {
     "default": {
-      "provider": "zai",
-      "modelId": "glm-5v-turbo",
+      "provider": "neuralwatt",
+      "modelId": "zai-org/GLM-5.1-FP8",
       "thinkingLevel": "medium"
     },
     "🪷-sensei": {
