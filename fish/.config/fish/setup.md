@@ -18,6 +18,11 @@
 - Run `mise use -g usage node go rust ghq bun uv`
 - Setup GitHub SSH key access and GPG signing key
 - Install [Tophat](https://github.com/fflewddur/tophat) from Extension Manager
+- Tailscale setup:
+  - `sudo systemctl enable --now tailscaled`
+  - `sudo tailscale up`
+  - `sudo tailscale set --operator=$USER`
+  - Run `tailscale status`. You may see a healthcheck warning about "systemd-resolved and NetworkManager are wired together incorrectly; MagicDNS will probably not work". If you do, fix it by [following this](https://tailscale.com/docs/reference/linux-dns#networkmanager--systemd-resolved).
 
 ## Set up Pi 
 
