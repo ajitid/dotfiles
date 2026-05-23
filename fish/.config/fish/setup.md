@@ -15,7 +15,7 @@
   - Install [passage](https://github.com/FiloSottile/passage) using `paru -S passage-git`
   - Install GitHub CLI using `paru -S github-cli`
   - Install appimagelauncher using `paru -S appimagelauncher`
-- Run `mise use -g usage node go rust ghq bun`
+- Run `mise use -g usage node go rust ghq bun uv`
 - Setup GitHub SSH key access and GPG signing key
 - Install [Tophat](https://github.com/fflewddur/tophat) from Extension Manager
 

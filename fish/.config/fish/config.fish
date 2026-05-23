@@ -11,6 +11,7 @@ end
 mise activate fish | source
 
 fish_add_path -g "$HOME/.bun/bin"
+fish_add_path -g "$HOME/.local/bin"
 
 export EDITOR="zeditor --wait"
 export LINKUP_API_KEY=(passage show linkup/api-key)
