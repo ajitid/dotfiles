@@ -36,6 +36,8 @@ The section "On responding" is taken from https://simonwillison.net/2026/Apr/18/
 
 For retrieving specific sites for now I'm opting for specific alt sites to get data but https://farside.link/ also looks promising
 
+For Cursor models, I use [pi-cursor-sdk](https://github.com/fitchmultz/pi-cursor-sdk).
+
 ## Web fetch
 
 I am using pi-scurl extension to fetch. When it fails to load an SPA page, the agent uses pi-linkup's web fetch which does resolve the contents.
