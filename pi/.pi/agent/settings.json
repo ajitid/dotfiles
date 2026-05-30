@@ -2,11 +2,11 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "gpt-5.3-codex",
+  "defaultModel": "gpt-5.5",
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.75.4",
+  "lastChangelogVersion": "0.78.0",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
