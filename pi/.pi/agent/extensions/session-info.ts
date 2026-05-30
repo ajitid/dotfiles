@@ -12,6 +12,32 @@ import {
   type ExtensionAPI,
 } from "@mariozechner/pi-coding-agent";
 
+const STATE_KEY = Symbol.for("pi:session-info:state");
+const globalState = globalThis as Record<
+  symbol,
+  { pendingExitMessage?: string; printedExitMessage?: boolean }
+>;
+
+if (!globalState[STATE_KEY]) {
+  globalState[STATE_KEY] = {};
+}
+const state = globalState[STATE_KEY];
+
+function printPendingExitMessage() {
+  if (!state.pendingExitMessage || state.printedExitMessage) return;
+  state.printedExitMessage = true;
+  process.stderr.write(state.pendingExitMessage);
+}
+
+const EXIT_HANDLER_KEY = Symbol.for("pi:session-info:exitHandler");
+const globalHandlers = globalThis as Record<symbol, true>;
+
+if (!globalHandlers[EXIT_HANDLER_KEY]) {
+  globalHandlers[EXIT_HANDLER_KEY] = true;
+  process.on("beforeExit", printPendingExitMessage);
+  process.on("exit", printPendingExitMessage);
+}
+
 export default function copySessionIdExtension(pi: ExtensionAPI) {
   // --session-info flag for one-shot mode
   pi.registerFlag("session-info", {
@@ -22,15 +48,16 @@ export default function copySessionIdExtension(pi: ExtensionAPI) {
   });
 
   // One-shot mode: print resume info on shutdown if --session-info flag is set
-  pi.on("session_shutdown", async (_event, ctx) => {
+  pi.on("session_shutdown", async (event, ctx) => {
+    if (event.reason !== "quit") return;
+    if (ctx.hasUI) return;
     if (!pi.getFlag("session-info")) return;
 
     const sessionId = ctx.sessionManager.getSessionId();
     if (!sessionId) return;
 
-    process.stderr.write(
-      `[pi] continue with: pi --session ${sessionId} -p "your follow-up"\n`,
-    );
+    state.pendingExitMessage = `[pi] continue with: pi --session ${sessionId} -p "your follow-up"\n`;
+    state.printedExitMessage = false;
   });
 
   pi.registerShortcut("ctrl+;", {
