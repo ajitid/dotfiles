@@ -2,8 +2,8 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "zai-org/GLM-5.1-FP8",
-  "defaultProvider": "neuralwatt",
+  "defaultModel": "gpt-5.5",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
   "lastChangelogVersion": "0.78.0",
