@@ -17,6 +17,10 @@ export EDITOR="zeditor --wait"
 export LINKUP_API_KEY=(passage show linkup/api-key)
 export NEURALWATT_API_KEY=(passage show neuralwatt/api-key)
 
+export REDDIT_CLIENT_ID=(passage show reddit/client-id)
+export REDDIT_CLIENT_SECRET=(passage show reddit/client-secret)
+export REDDIT_USER_AGENT='linux:pi-reddit-skill:v0.1 by u_ajitid'
+
 abbr -a -- - 'cd -'
 abbr gg 'ghq get -p'
 alias g. 'smerge .'

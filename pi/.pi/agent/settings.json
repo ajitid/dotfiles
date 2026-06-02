@@ -20,11 +20,11 @@
     "npm:@aliou/pi-neuralwatt"
   ],
   "skills": [
-    "-skills/hackernews-hackerweb/SKILL.md",
     "-skills/twitter-fetch/SKILL.md",
     "-skills/youtube-transcript/SKILL.md",
     "-skills/browser-tools/SKILL.md",
-    "-skills/surf/SKILL.md"
+    "-skills/surf/SKILL.md",
+    "+skills/hackernews-hackerweb/SKILL.md"
   ],
   "steeringMode": "all",
   "transport": "auto",

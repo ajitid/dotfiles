@@ -34,9 +34,7 @@ The section "On responding" is taken from https://simonwillison.net/2026/Apr/18/
 
 ## Other info
 
-For retrieving specific sites for now I'm opting for specific alt sites to get data but https://farside.link/ also looks promising
-
-For Cursor models, I use [pi-cursor-sdk](https://github.com/fitchmultz/pi-cursor-sdk).
+For retrieving specific sites for now I'm opting for specific alt sites to get data but https://farside.link/ also looks promising.
 
 ## Web fetch
 

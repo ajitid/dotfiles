@@ -1,22 +1,22 @@
 ---
 name: reddit-public-json
-description: Fetch and parse public Reddit thread JSON without OAuth/app keys using curl+jq with a stable User-Agent. Use when users ask for quick Reddit post/comment reactions from publicly available .json endpoints.
+description: Fetch and parse Reddit thread JSON using OAuth app-only credentials. Use when users ask for quick Reddit post/comment reactions from public threads.
 ---
 
-# Reddit Public JSON (No OAuth)
+# Reddit Public JSON (OAuth)
 
-Use this skill to fetch Reddit thread JSON from public `.json` endpoints and extract top comments safely in small payloads.
+Use this skill to fetch Reddit thread JSON from public Reddit threads via OAuth and extract top comments safely in small payloads.
 
 ## When to use
 
 - User asks for reactions/opinions in a Reddit thread
-- User wants public `.json` only (no API key/OAuth)
-- Need `curl | jq` commands that avoid common 403 issues
+- User wants public Reddit thread JSON
+- Need `curl | jq` commands that avoid unauthenticated Reddit `.json` 403 issues
 
 ## Notes
 
-- Public `.json` can be rate-limited/blocked depending on User-Agent and environment.
-- Use a non-default User-Agent (e.g., `pi-scurl/0.1`).
+- The script uses OAuth `client_credentials` and `https://oauth.reddit.com` for public threads.
+- `reddit-token.sh` caches the bearer token under `${XDG_CACHE_HOME:-$HOME/.cache}/pi/reddit-public-json/token.json`.
 - Keep payloads small with `limit` and especially `depth`.
 - For public-only mode, prefer sampling top-level comments (`depth=1`).
 - `reddit-top-comments.sh` now filters low-signal comments by default:
@@ -26,7 +26,7 @@ Use this skill to fetch Reddit thread JSON from public `.json` endpoints and ext
 ## Generic thread URL
 
 ```text
-https://www.reddit.com/r/{sub}/comments/{post_id}/.json?raw_json=1&sort=top&limit=20&depth=1
+https://oauth.reddit.com/r/{sub}/comments/{post_id}?raw_json=1&sort=top&limit=20&depth=1
 ```
 
 ## Quick commands
@@ -55,11 +55,19 @@ Include nested replies (fetch with `depth>1` in step 1):
 ## One-liner (no helper scripts)
 
 ```bash
-URL='https://www.reddit.com/r/{sub}/comments/{post_id}/.json?raw_json=1&sort=top&limit=20&depth=1'
+TOKEN=$(curl -fsSL \
+  -A "$REDDIT_USER_AGENT" \
+  -u "$REDDIT_CLIENT_ID:$REDDIT_CLIENT_SECRET" \
+  -d grant_type=client_credentials \
+  https://www.reddit.com/api/v1/access_token \
+| jq -r '.access_token')
+
+URL='https://oauth.reddit.com/r/{sub}/comments/{post_id}?raw_json=1&sort=top&limit=20&depth=1'
 
 curl -fsSL \
-  -H 'User-Agent: pi-scurl/0.1' \
-  -H 'Accept: text/html,application/xhtml+xml,text/plain,application/json,*/*' \
+  -A "$REDDIT_USER_AGENT" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H 'Accept: application/json' \
   "$URL" \
 | jq -r '
   .[1].data.children[]
@@ -71,9 +79,8 @@ curl -fsSL \
 ' | sort -nr
 ```
 
-## Fallbacks
+## Notes
 
-- If request returns `403`, retry with same headers and a small `limit`.
-- If request returns `429`, wait and retry.
+- If OAuth environment variables are missing, scripts fail with setup instructions. Stop and ask the user to set them up first so you can proceed.
 - If response is too large, lower `limit` and set `depth=1`.
-- Scripts now fail fast with clear messages if required tools are missing (`curl` for fetch, `jq` for parse).
+- Scripts now fail fast with clear messages if required tools are missing (`curl` for fetch/token, `jq` for token parsing/comment parse). If tools are unavailable, stop and ask the user to install them so you can proceed.
