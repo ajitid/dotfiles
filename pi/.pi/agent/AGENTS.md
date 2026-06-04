@@ -24,7 +24,7 @@ When you're not sure if the fix/feature can be implemented, you can still attemp
 
 Also in these cases, tell the user that you're not sure.
 
-## On creating the plan
+## On creating the plan (aka planning phase)
 
 For building the plan, read agent-planning skill.
 
