@@ -2,11 +2,11 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "gpt-5.5",
-  "defaultProvider": "openai-codex",
+  "defaultModel": "mimo-v2.5",
+  "defaultProvider": "xiaomi-token-plan-sgp",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.78.0",
+  "lastChangelogVersion": "0.78.1",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
@@ -16,8 +16,7 @@
       ],
       "source": "npm:@aliou/pi-linkup"
     },
-    "npm:pi-scurl",
-    "npm:@aliou/pi-neuralwatt"
+    "npm:pi-scurl"
   ],
   "skills": [
     "-skills/twitter-fetch/SKILL.md",

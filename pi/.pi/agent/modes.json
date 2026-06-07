@@ -3,8 +3,8 @@
   "currentMode": "default",
   "modes": {
     "default": {
-      "provider": "neuralwatt",
-      "modelId": "zai-org/GLM-5.1-FP8",
+      "provider": "xiaomi-token-plan-sgp",
+      "modelId": "mimo-v2.5",
       "thinkingLevel": "medium"
     },
     "🪷-sensei": {
