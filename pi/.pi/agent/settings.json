@@ -2,7 +2,7 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "mimo-v2.5-pro",
+  "defaultModel": "mimo-v2.5",
   "defaultProvider": "xiaomi-token-plan-sgp",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
