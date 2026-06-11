@@ -15,7 +15,9 @@ fish_add_path -g "$HOME/.local/bin"
 
 export EDITOR="zeditor --wait"
 export LINKUP_API_KEY=(passage show linkup/api-key)
-export NEURALWATT_API_KEY=(passage show neuralwatt/api-key)
+
+export VOXTER_API_KEY=(passage show voxter/api-key)
+export VOXTER_CONTEXT_BIAS='Claude Code,Skia,skia-safe,Bevy,OPENRNDR,Mistral'
 
 export REDDIT_CLIENT_ID=(passage show reddit/client-id)
 export REDDIT_CLIENT_SECRET=(passage show reddit/client-secret)

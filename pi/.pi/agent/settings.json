@@ -2,11 +2,11 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "mimo-v2.5",
-  "defaultProvider": "xiaomi-token-plan-sgp",
+  "defaultModel": "gpt-5.5",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.79.0",
+  "lastChangelogVersion": "0.79.1",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
