@@ -14,13 +14,13 @@ fish_add_path -g "$HOME/.bun/bin"
 fish_add_path -g "$HOME/.local/bin"
 
 export EDITOR="zeditor --wait"
-export LINKUP_API_KEY=(passage show linkup/api-key)
+export LINKUP_API_KEY=(secret-tool lookup linkup api-key)
 
-export VOXTER_API_KEY=(passage show voxter/api-key)
+export VOXTER_API_KEY=(secret-tool lookup voxter api-key)
 export VOXTER_CONTEXT_BIAS='Claude Code,Skia,skia-safe,Bevy,OPENRNDR,Mistral'
 
-export REDDIT_CLIENT_ID=(passage show reddit/client-id)
-export REDDIT_CLIENT_SECRET=(passage show reddit/client-secret)
+export REDDIT_CLIENT_ID=(secret-tool lookup reddit client-id)
+export REDDIT_CLIENT_SECRET=(secret-tool lookup reddit client-secret)
 export REDDIT_USER_AGENT='linux:pi-reddit-skill:v0.1 by u_ajitid'
 
 abbr -a -- - 'cd -'
