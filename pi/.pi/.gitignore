@@ -3,4 +3,5 @@
 /agent/cache
 /agent/pi-sessions-extracted
 /agent/trust.json
+/agent/bin
 .DS_Store
