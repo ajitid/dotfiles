@@ -16,7 +16,8 @@
       ],
       "source": "npm:@aliou/pi-linkup"
     },
-    "npm:pi-scurl"
+    "npm:pi-scurl",
+    "git:https://github.com/badlogic/pi-diff-review"
   ],
   "skills": [
     "-skills/twitter-fetch/SKILL.md",
