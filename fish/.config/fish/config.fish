@@ -1,3 +1,5 @@
+source /usr/share/cachyos-fish-config/cachyos-config.fish
+
 function fish_greeting
 end
 
@@ -9,7 +11,7 @@ end
 fish_add_path -g "$HOME/.bun/bin"
 fish_add_path -g "$HOME/.local/bin"
 
-set -gx EDITOR "zed --wait"
+set -gx EDITOR "zeditor --wait"
 set -gx LINKUP_API_KEY (secret-tool lookup linkup api-key)
 
 set -gx VOXTER_API_KEY (secret-tool lookup voxter api-key)
@@ -22,6 +24,7 @@ set -gx REDDIT_USER_AGENT 'linux:pi-reddit-skill:v0.1 by u_ajitid'
 abbr -a -- - 'cd -'
 abbr gg 'ghq get -p'
 alias g. 'smerge .'
+alias zed 'zeditor'
 function gcd
   set -l repo (ghq list | fzf)
   or return
