@@ -2,10 +2,10 @@
   "compaction": {
     "enabled": false
   },
-  "defaultModel": "mimo-v2.5-pro",
-  "defaultProvider": "xiaomi-token-plan-sgp",
+  "defaultModel": "gpt-5.5",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "lastChangelogVersion": "0.79.6",
   "packages": [
     "npm:pi-ask-tool-extension",
@@ -28,5 +28,6 @@
   ],
   "steeringMode": "all",
   "transport": "auto",
-  "treeFilterMode": "no-tools"
+  "treeFilterMode": "no-tools",
+  "theme": "dark"
 }
