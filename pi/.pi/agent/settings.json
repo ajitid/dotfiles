@@ -6,7 +6,7 @@
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.79.6",
+  "lastChangelogVersion": "0.80.6",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
