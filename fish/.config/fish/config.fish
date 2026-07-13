@@ -34,5 +34,10 @@ function caffe_wake_up_sunshine
     # you have 120 sec = 2 min to login using moonlight
     caffeinate -d -u -t 120 &
     sleep 1
-    # brew services restart sunshine # optional, run it in sunshine failed loading itself
+    # more often than not this is needed
+    brew services restart sunshine
 end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
