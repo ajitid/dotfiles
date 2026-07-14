@@ -30,10 +30,11 @@ function gi
   cd "$HOME/ghq/$repo"
 end
 
+
 function caffe_wake_up
-    # you have 120 sec = 2 min to login using moonlight
+	# awake the display
+    # you have 120 sec = 2 min to login using Parsec
     caffeinate -d -u -t 120 &
-    sleep 1
 end
 
 # Added by OrbStack: command-line tools and integration
