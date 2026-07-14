@@ -30,12 +30,10 @@ function gi
   cd "$HOME/ghq/$repo"
 end
 
-function caffe_wake_up_sunshine
+function caffe_wake_up
     # you have 120 sec = 2 min to login using moonlight
     caffeinate -d -u -t 120 &
     sleep 1
-    # more often than not this is needed
-    brew services restart sunshine
 end
 
 # Added by OrbStack: command-line tools and integration
