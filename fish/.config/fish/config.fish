@@ -6,19 +6,28 @@ if status is-interactive
     set -g exit_status 0
 end
 
-if status is-interactive; and set -q SSH_CONNECTION
-    security unlock-keychain ~/Library/Keychains/login.keychain-db
-end
-
 fzf --fish | source
 
 fish_add_path -g "$HOME/.local/bin"
 
 set -gx EDITOR "zed --wait"
-set -gx LINKUP_API_KEY (security find-generic-password -a "$USER" -s "linkup/api-key" -w)
-set -gx REDDIT_CLIENT_ID (security find-generic-password -a "$USER" -s "reddit/client-id" -w)
-set -gx REDDIT_CLIENT_SECRET (security find-generic-password -a "$USER" -s "reddit/client-secret" -w)
-set -gx REDDIT_USER_AGENT 'linux:pi-reddit-skill:v0.1 by u_ajitid'
+
+function prep_pi
+    if status is-interactive; and set -q SSH_CONNECTION
+        security unlock-keychain ~/Library/Keychains/login.keychain-db
+    end
+
+    _fish_set_keys
+end
+
+function _fish_set_keys
+    set -gx LINKUP_API_KEY (security find-generic-password -a "$USER" -s "linkup/api-key" -w)
+    set -gx REDDIT_CLIENT_ID (security find-generic-password -a "$USER" -s "reddit/client-id" -w)
+    set -gx REDDIT_CLIENT_SECRET (security find-generic-password -a "$USER" -s "reddit/client-secret" -w)
+    set -gx REDDIT_USER_AGENT 'linux:pi-reddit-skill:v0.1 by u_ajitid'
+end
+
+_fish_set_keys
 
 abbr -a -- - 'cd -'
 abbr gg 'ghq get -p'
@@ -36,6 +45,7 @@ function caffe_wake_up
     # you have 120 sec = 2 min to login using Parsec
     caffeinate -d -u -t 120 &
 end
+
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
