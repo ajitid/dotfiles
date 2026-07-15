@@ -6,15 +6,17 @@ if status is-interactive
     set -g exit_status 0
 end
 
-fzf --fish | source
+fish_add_path -g /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.local/bin"
 
-fish_add_path -g "$HOME/.local/bin"
+if type -q fzf
+    fzf --fish | source
+end
 
 set -gx EDITOR "zed --wait"
 
 # When using terminal via ssh (or via ssh+tmux), `security` stuff doesn't get unlocked automatically.
 # We need to manually authorize.
-function prep_pi
+function marinate
     if status is-interactive
         security unlock-keychain ~/Library/Keychains/login.keychain-db
         _fish_set_keys
@@ -47,7 +49,9 @@ function caffe_wake_up
     caffeinate -d -u -t 120 &
 end
 
-
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# needed for Mosh at the client side to connect to this machine
+# set -gx LANG en_IN.UTF-8
