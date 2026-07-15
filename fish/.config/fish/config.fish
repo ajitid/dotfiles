@@ -12,12 +12,13 @@ fish_add_path -g "$HOME/.local/bin"
 
 set -gx EDITOR "zed --wait"
 
+# When using terminal via ssh (or via ssh+tmux), `security` stuff doesn't get unlocked automatically.
+# We need to manually authorize.
 function prep_pi
-    if status is-interactive; and set -q SSH_CONNECTION
+    if status is-interactive
         security unlock-keychain ~/Library/Keychains/login.keychain-db
+        _fish_set_keys
     end
-
-    _fish_set_keys
 end
 
 function _fish_set_keys
