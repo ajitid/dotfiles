@@ -42,6 +42,7 @@ function gi
   cd "$HOME/ghq/$repo"
 end
 
+# ncdu for folder sizes
 
 function caffe_wake_up
     # awake the display
