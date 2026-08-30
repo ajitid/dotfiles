@@ -44,7 +44,7 @@ end
 
 
 function caffe_wake_up
-	# awake the display
+    # awake the display
     # you have 120 sec = 2 min to login using Parsec
     caffeinate -d -u -t 120 &
 end
