@@ -42,7 +42,9 @@ function gi
   cd "$HOME/ghq/$repo"
 end
 
-# ncdu for folder sizes
+# `ncdu` for folder sizes
+# `caffeinate -duit (bc -e '60 * 60 * 3')` for disallowing sleep for 3 hr
+# `gping -n 0.1 iphone-xr` (or ip like `192.168.1.14` instead of `iphone-xr`) for ping latency
 
 function caffe_wake_up
     # awake the display

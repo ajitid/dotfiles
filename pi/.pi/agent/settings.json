@@ -4,9 +4,9 @@
   },
   "defaultModel": "gpt-5.6-terra",
   "defaultProvider": "openai-codex",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.84.4",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
