@@ -46,7 +46,7 @@ Do note that such tool may not exist yet or you may not have known about it. So 
 
 - Web page fetching order:
   1. If you have a dedicated skill to fetch then try that first
-  2. Otherwise use `web_fetch` tool to fetch. You may need `web_fetch` with `--raw` if the output you're expecting is non-HTML. If `web_fetch` only gives you title and maybe meta description then, go with 3rd option which is...
+  2. Otherwise use `web_fetch` tool to fetch. You may need `web_fetch` with `--raw` if the output you're expecting is non-HTML. If `web_fetch` gives you only title, plus maybe meta description, then go with 3rd option which is...
   3. Use "Linkup: WebFetch" (`linkup_web_fetch`)
 - WebSearch: only search for top 8 results
 - Unless specified, prefer installing the latest package dependencies. For example use `bun add` and `cargo add` instead of directly modifying `package.json` or `Cargo.toml`.

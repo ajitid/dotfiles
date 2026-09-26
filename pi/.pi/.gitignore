@@ -4,4 +4,5 @@
 /agent/pi-sessions-extracted
 /agent/trust.json
 /agent/bin
+/agent/models-store.json
 .DS_Store
