@@ -5,4 +5,8 @@
 /agent/trust.json
 /agent/bin
 /agent/models-store.json
+/agent/install
+/plans
+/todos
+/agent/crashes.json
 .DS_Store

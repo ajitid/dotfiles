@@ -6,7 +6,7 @@
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.86.1",
+  "lastChangelogVersion": "1.1.0",
   "packages": [
     "npm:pi-ask-tool-extension",
     "npm:pi-md-export",
@@ -20,11 +20,11 @@
     "git:https://github.com/badlogic/pi-diff-review"
   ],
   "skills": [
-    "-skills/twitter-fetch/SKILL.md",
     "-skills/youtube-transcript/SKILL.md",
     "-skills/browser-tools/SKILL.md",
     "-skills/surf/SKILL.md",
-    "+skills/hackernews-hackerweb/SKILL.md"
+    "+skills/hackernews-hackerweb/SKILL.md",
+    "+skills/twitter-fetch/SKILL.md"
   ],
   "steeringMode": "all",
   "transport": "auto",
