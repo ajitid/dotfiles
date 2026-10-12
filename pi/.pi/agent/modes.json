@@ -9,8 +9,7 @@
     },
     "🪷-sensei": {
       "provider": "openai-codex",
-      "modelId": "gpt-5.5",
-      "thinkingLevel": "medium"
+      "modelId": "gpt-6.1-sol"
     }
   }
 }
