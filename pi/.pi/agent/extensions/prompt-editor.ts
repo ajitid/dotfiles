@@ -1,6 +1,6 @@
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
-import { CustomEditor, ModelSelectorComponent, SettingsManager } from "@earendil-works/pi-coding-agent";
-import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
+import { CustomEditor, keyHint, ModelRuntime, ModelSelectorComponent } from "@earendil-works/pi-coding-agent";
+import { Spacer, Text, truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 import path from "node:path";
 import os from "node:os";
 import fs from "node:fs/promises";
@@ -880,23 +880,57 @@ async function pickModelForModeUI(
 ): Promise<{ provider: string; modelId: string } | undefined> {
 	if (!ctx.hasUI) return undefined;
 
-	const settingsManager = SettingsManager.inMemory();
-	const currentModel = spec.provider && spec.modelId ? ctx.modelRegistry.find(spec.provider, spec.modelId) : ctx.model;
+	if (ctx.mode === "tui") {
+		// The native selector needs a ModelRuntime, not the session's ModelRegistry facade.
+		const modelRuntime = await ModelRuntime.create();
+		const currentModel = spec.provider && spec.modelId
+			? modelRuntime.getModel(spec.provider, spec.modelId)
+			: ctx.model;
 
-	const scopedModels: Array<{ model: any; thinkingLevel: string }> = [];
+		return ctx.ui.custom<{ provider: string; modelId: string } | undefined>((tui, theme, _keybindings, done) => {
+			const selector = new ModelSelectorComponent(
+				tui,
+				currentModel,
+				modelRuntime,
+				[],
+				(model) => done({ provider: model.provider, modelId: model.id }),
+				() => done(undefined),
+			);
+			selector.addChild(new Spacer(1));
+			selector.addChild(new Text(
+				[
+					theme.fg("dim", "Type to filter"),
+					keyHint("tui.select.up", "up"),
+					keyHint("tui.select.down", "down"),
+					keyHint("tui.select.confirm", "select"),
+					keyHint("tui.select.cancel", "cancel"),
+				].join(theme.fg("dim", " • ")),
+				0, 0,
+			));
+			return selector;
+		});
+	}
 
-	return ctx.ui.custom<{ provider: string; modelId: string } | undefined>((tui, _theme, _keybindings, done) => {
-		const selector = new ModelSelectorComponent(
-			tui,
-			currentModel,
-			settingsManager,
-			ctx.modelRegistry as any,
-			scopedModels as any,
-			(model) => done({ provider: model.provider, modelId: model.id }),
-			() => done(undefined),
-		);
-		return selector;
-	});
+	await ctx.modelRegistry.refresh();
+	const models = ctx.modelRegistry
+		.getAvailable()
+		.map((model) => ({ model, label: `${model.provider}/${model.id}` }))
+		.sort((a, b) => a.label.localeCompare(b.label));
+
+	if (models.length === 0) {
+		ctx.ui.notify("No authenticated models are available", "warning");
+		return undefined;
+	}
+
+	const currentLabel = spec.provider && spec.modelId ? `${spec.provider}/${spec.modelId}` : undefined;
+	const options = currentLabel && models.some(({ label }) => label === currentLabel)
+		? [currentLabel, ...models.filter(({ label }) => label !== currentLabel).map(({ label }) => label)]
+		: models.map(({ label }) => label);
+	const choice = await ctx.ui.select("Select model", options);
+	if (!choice) return undefined;
+
+	const model = models.find(({ label }) => label === choice)?.model;
+	return model ? { provider: model.provider, modelId: model.id } : undefined;
 }
 
 async function pickThinkingLevelForModeUI(
