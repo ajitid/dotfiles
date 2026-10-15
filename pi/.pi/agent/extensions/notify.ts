@@ -2,6 +2,8 @@
  * Desktop Notification Extension
  *
  * Sends a native desktop notification when the agent finishes and is waiting for input.
+ * Also notifies when the agent asks a question via the "ask" tool (tool_call event);
+ * agent_end alone would only fire after the question is answered and the run completes.
  * Uses OSC 777 escape sequence - no external dependencies.
  *
  * Supported terminals: Ghostty, iTerm2, WezTerm, rxvt-unicode
@@ -67,6 +69,29 @@ const simpleMarkdown = (text: string, width = 80): string => {
 	return markdown.render(width).join("\n");
 };
 
+const clampNotificationBody = (text: string): string => {
+	const normalized = text
+		.replace(/[\x00-\x1f\x7f-\x9f]/g, " ")
+		.replace(/\s+/g, " ")
+		.trim();
+	if (normalized.length > 200) {
+		return `${normalized.slice(0, 199)}…`;
+	}
+	return normalized;
+};
+
+const extractAskBody = (input: Record<string, unknown>): string => {
+	const questions = input.questions;
+	if (!Array.isArray(questions) || questions.length === 0) {
+		return "";
+	}
+
+	const firstQuestion = questions[0] as { question?: unknown } | undefined;
+	const firstText = typeof firstQuestion?.question === "string" ? firstQuestion.question.trim() : "";
+	const prefix = questions.length > 1 ? `${questions.length} questions: ` : "";
+	return `${prefix}${firstText}`;
+};
+
 const formatNotification = (text: string | null): { title: string; body: string } => {
 	const simplified = text ? simpleMarkdown(text) : "";
 	// Markdown emits OSC 8 hyperlinks. Embedding one OSC sequence inside the OSC
@@ -91,5 +116,16 @@ export default function (pi: ExtensionAPI) {
 		const lastText = extractLastAssistantText(event.messages ?? []);
 		const { title, body } = formatNotification(lastText);
 		notify(title, body);
+	});
+
+	// tool_call fires after argument validation and just before execute(), so it is the
+	// accurate "the ask UI is about to appear" moment (tool_execution_start fires earlier,
+	// before validation and blocking handlers).
+	pi.on("tool_call", (event) => {
+		if (event.toolName !== "ask") {
+			return;
+		}
+
+		notify("π — question", clampNotificationBody(extractAskBody(event.input)));
 	});
 }
