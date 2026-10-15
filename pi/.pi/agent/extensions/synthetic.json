@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@aliou/pi-synthetic@0.29.0/schema.json",
+  "configVersion": "0.29.0",
+  "api": "openai-completions",
+  "webSearch": true,
+  "quotasCommand": true,
+  "usageStatus": false,
+  "quotaWarnings": false,
+  "proxyUrl": "",
+  "proxyRequiresAuth": true
+}

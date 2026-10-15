@@ -50,3 +50,4 @@ Do note that such tool may not exist yet or you may not have known about it. So 
   3. Use "Linkup: WebFetch" (`linkup_web_fetch`)
 - WebSearch: only search for top 8 results
 - Unless specified, prefer installing the latest package dependencies. For example use `bun add` and `cargo add` instead of directly modifying `package.json` or `Cargo.toml`.
+- The Ask tool call only contains description for the question, not for the options. Description supports multi-lines.

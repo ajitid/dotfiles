@@ -28,6 +28,7 @@ function _fish_set_keys
     set -gx REDDIT_CLIENT_ID (security find-generic-password -a "$USER" -s "reddit/client-id" -w)
     set -gx REDDIT_CLIENT_SECRET (security find-generic-password -a "$USER" -s "reddit/client-secret" -w)
     set -gx REDDIT_USER_AGENT 'linux:pi-reddit-skill:v0.1 by u_ajitid'
+    set -gx SYNTHETIC_API_KEY (security find-generic-password -a "$USER" -s "synthetic/api-key" -w)
 end
 
 _fish_set_keys

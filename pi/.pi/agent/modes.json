@@ -3,13 +3,14 @@
   "currentMode": "default",
   "modes": {
     "default": {
-      "provider": "openai-codex",
-      "modelId": "gpt-5.6-terra",
-      "thinkingLevel": "medium"
+      "provider": "synthetic",
+      "modelId": "hf:zai-org/GLM-5.3-Flash",
+      "thinkingLevel": "high"
     },
     "🪷-sensei": {
       "provider": "openai-codex",
-      "modelId": "gpt-6.1-sol"
+      "modelId": "gpt-6.1-sol",
+      "thinkingLevel": "medium"
     }
   }
 }

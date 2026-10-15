@@ -882,7 +882,10 @@ async function pickModelForModeUI(
 
 	if (ctx.mode === "tui") {
 		// The native selector needs a ModelRuntime, not the session's ModelRegistry facade.
-		const modelRuntime = await ModelRuntime.create();
+		// ModelRuntime.create() would build a fresh runtime with builtins only, missing
+		// providers registered by extensions (e.g. synthetic). The session runtime lives in
+		// the registry's (TS-private) `runtime` field and is the same one /model uses.
+		const modelRuntime = (ctx.modelRegistry as unknown as { runtime: ModelRuntime }).runtime;
 		const currentModel = spec.provider && spec.modelId
 			? modelRuntime.getModel(spec.provider, spec.modelId)
 			: ctx.model;

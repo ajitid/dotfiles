@@ -5,7 +5,7 @@
   "defaultModel": "gpt-5.6-terra",
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "lastChangelogVersion": "1.1.0",
   "packages": [
     "npm:pi-ask-tool-extension",
@@ -17,7 +17,8 @@
       "source": "npm:@aliou/pi-linkup"
     },
     "npm:pi-scurl",
-    "git:https://github.com/badlogic/pi-diff-review"
+    "git:https://github.com/badlogic/pi-diff-review",
+    "npm:@aliou/pi-synthetic"
   ],
   "skills": [
     "-skills/youtube-transcript/SKILL.md",
