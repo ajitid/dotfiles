@@ -4,7 +4,7 @@
   "modes": {
     "default": {
       "provider": "synthetic",
-      "modelId": "hf:zai-org/GLM-5.3-Flash",
+      "modelId": "hf:moonshotai/Kimi-K3",
       "thinkingLevel": "high"
     },
     "🪷-sensei": {
