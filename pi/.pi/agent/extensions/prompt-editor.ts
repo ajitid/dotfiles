@@ -1319,7 +1319,7 @@ export default function (pi: ExtensionAPI) {
 		},
 	});
 
-	pi.registerShortcut("alt+space", {
+	pi.registerShortcut("ctrl+space", {
 		description: "Cycle prompt mode",
 		handler: async (ctx) => {
 			await cycleMode(pi, ctx, 1);
