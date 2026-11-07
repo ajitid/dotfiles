@@ -16,7 +16,7 @@ Use this skill to fetch Reddit thread JSON from public Reddit threads via OAuth 
 ## Notes
 
 - The script uses OAuth `client_credentials` and `https://oauth.reddit.com` for public threads.
-- `reddit-token.sh` caches the bearer token under `${XDG_CACHE_HOME:-$HOME/.cache}/pi/reddit-public-json/token.json`.
+- `reddit-token.sh` caches the bearer token under `${XDG_CACHE_HOME:-$HOME/.cache}/agent/reddit-public-json/token.json`.
 - Keep payloads small with `limit` and especially `depth`.
 - For public-only mode, prefer sampling top-level comments (`depth=1`).
 - `reddit-top-comments.sh` now filters low-signal comments by default:
@@ -34,7 +34,7 @@ https://oauth.reddit.com/r/{sub}/comments/{post_id}?raw_json=1&sort=top&limit=20
 ### 1) Fetch raw JSON to a file
 
 ```bash
-~/.pi/agent/skills/reddit-public-json/scripts/reddit-json.sh <sub> <post_id> [sort] [limit] [depth] > /tmp/reddit-thread.json
+{baseDir}/scripts/reddit-json.sh <sub> <post_id> [sort] [limit] [depth] > /tmp/reddit-thread.json
 ```
 
 ### 2) Print filtered comments as TSV (ups, author, body)
@@ -42,13 +42,13 @@ https://oauth.reddit.com/r/{sub}/comments/{post_id}?raw_json=1&sort=top&limit=20
 Top-level only (default):
 
 ```bash
-~/.pi/agent/skills/reddit-public-json/scripts/reddit-top-comments.sh /tmp/reddit-thread.json [top_n]
+{baseDir}/scripts/reddit-top-comments.sh /tmp/reddit-thread.json [top_n]
 ```
 
 Include nested replies (fetch with `depth>1` in step 1):
 
 ```bash
-~/.pi/agent/skills/reddit-public-json/scripts/reddit-top-comments.sh /tmp/reddit-thread.json [top_n] --recursive
+{baseDir}/scripts/reddit-top-comments.sh /tmp/reddit-thread.json [top_n] --recursive
 ```
 
 
