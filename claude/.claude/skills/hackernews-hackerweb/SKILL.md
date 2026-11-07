@@ -27,8 +27,8 @@ https://api.hackerwebapp.com/item/<id>
 ### 1) Fetch an item (raw or pretty)
 
 ```bash
-~/.claude/skills/hackernews-hackerweb/scripts/hackerweb-item.sh 47204027 pretty
-~/.claude/skills/hackernews-hackerweb/scripts/hackerweb-item.sh 47240200 pretty
+{baseDir}/scripts/hackerweb-item.sh 47204027 pretty
+{baseDir}/scripts/hackerweb-item.sh 47240200 pretty
 ```
 
 ### 2) Print flattened comments (TSV)
@@ -36,13 +36,13 @@ https://api.hackerwebapp.com/item/<id>
 Top comments + nested replies:
 
 ```bash
-~/.claude/skills/hackernews-hackerweb/scripts/hackerweb-comments.sh 47204027 20
+{baseDir}/scripts/hackerweb-comments.sh 47204027 20
 ```
 
 Top-level only:
 
 ```bash
-~/.claude/skills/hackernews-hackerweb/scripts/hackerweb-comments.sh 47204027 20 --top-level
+{baseDir}/scripts/hackerweb-comments.sh 47204027 20 --top-level
 ```
 
 Output columns:

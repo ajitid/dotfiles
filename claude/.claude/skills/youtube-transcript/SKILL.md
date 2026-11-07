@@ -10,14 +10,14 @@ Fetch transcripts from YouTube videos.
 ## Setup
 
 ```bash
-cd ~/.claude/skills/youtube-transcript
+cd {baseDir}
 bun install
 ```
 
 ## Usage
 
 ```bash
-~/.claude/skills/youtube-transcript/transcript.js <video-id-or-url>
+{baseDir}/transcript.js <video-id-or-url>
 ```
 
 Accepts video ID or full URL:

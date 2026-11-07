@@ -18,7 +18,7 @@ Use this skill to read public tweet content from Nitter HTML when x.com is block
 - Helper script usage:
 
 ```bash
-~/.claude/skills/twitter-fetch/scripts/fetch-twitter-content.sh '<tweet-url>'
+{baseDir}/scripts/fetch-twitter-content.sh '<tweet-url>'
 ```
 
 ## Source URL

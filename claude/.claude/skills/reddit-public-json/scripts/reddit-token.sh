@@ -39,7 +39,7 @@ EOF
   exit 1
 fi
 
-cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/pi/reddit-public-json"
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/agent/reddit-public-json"
 cache_file="$cache_dir/token.json"
 now="$(date +%s)"
 
